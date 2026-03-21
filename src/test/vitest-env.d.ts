@@ -1,4 +1,5 @@
 /// <reference types="vite-plus/test" />
+/// <reference types="@testing-library/jest-dom" />
 
 interface ImportMetaEnv {
   readonly APP_ENV: string;

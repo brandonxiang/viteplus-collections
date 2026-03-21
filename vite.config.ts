@@ -1,9 +1,7 @@
 /* eslint-disable no-undef */
 import path, { dirname } from 'path';
 import { defineConfig, loadEnv } from 'vite-plus';
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
-import babel from '@rolldown/plugin-babel';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { reactRouter } from '@react-router/dev/vite';
 import { fileURLToPath } from 'url';
 
 // https://vitejs.dev/config/
@@ -216,12 +214,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    react(),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (babel as any)({ presets: [reactCompilerPreset()] }),
-    createHtmlPlugin({
-      minify: true,
-    }),
-  ],
+  plugins: [reactRouter()],
 });

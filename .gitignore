@@ -2,6 +2,9 @@
 .DS_Store
 node_modules
 dist
+build
 .react-router
 .env
 coverage
+
+build

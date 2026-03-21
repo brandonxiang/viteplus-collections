@@ -8,7 +8,6 @@ import {
   DollarOutlined,
   LineChartOutlined,
 } from '@ant-design/icons';
-import { Chart } from '@antv/g2';
 import './index.scss';
 
 const Dashboard = () => {
@@ -16,232 +15,259 @@ const Dashboard = () => {
   const barChartRef = useRef<HTMLDivElement>(null);
   const pieChartRef = useRef<HTMLDivElement>(null);
   const areaChartRef = useRef<HTMLDivElement>(null);
+  const loadChart = () => import('@antv/g2').then((module) => module.Chart);
 
   // Initialize Line Chart
   useEffect(() => {
-    if (!lineChartRef.current) return;
+    let chart: any;
+    let isDisposed = false;
+    const setupChart = async () => {
+      if (!lineChartRef.current) return;
+      const Chart = await loadChart();
+      if (!lineChartRef.current || isDisposed) return;
 
-    const chart = new Chart({
-      container: lineChartRef.current,
-      autoFit: true,
-    });
+      chart = new Chart({
+        container: lineChartRef.current,
+        autoFit: true,
+      });
 
-    const rawData = [
-      { month: 'Jan', revenue: 3500, cost: 2800 },
-      { month: 'Feb', revenue: 4200, cost: 3100 },
-      { month: 'Mar', revenue: 3800, cost: 2900 },
-      { month: 'Apr', revenue: 5100, cost: 3400 },
-      { month: 'May', revenue: 4800, cost: 3300 },
-      { month: 'Jun', revenue: 6200, cost: 3900 },
-      { month: 'Jul', revenue: 7100, cost: 4200 },
-      { month: 'Aug', revenue: 6800, cost: 4100 },
-      { month: 'Sep', revenue: 7500, cost: 4500 },
-      { month: 'Oct', revenue: 8200, cost: 4800 },
-      { month: 'Nov', revenue: 9100, cost: 5200 },
-      { month: 'Dec', revenue: 9800, cost: 5500 },
-    ];
-    const lineData = rawData.flatMap((d) => [
-      { month: d.month, type: 'revenue', value: d.revenue },
-      { month: d.month, type: 'cost', value: d.cost },
-    ]);
+      const rawData = [
+        { month: 'Jan', revenue: 3500, cost: 2800 },
+        { month: 'Feb', revenue: 4200, cost: 3100 },
+        { month: 'Mar', revenue: 3800, cost: 2900 },
+        { month: 'Apr', revenue: 5100, cost: 3400 },
+        { month: 'May', revenue: 4800, cost: 3300 },
+        { month: 'Jun', revenue: 6200, cost: 3900 },
+        { month: 'Jul', revenue: 7100, cost: 4200 },
+        { month: 'Aug', revenue: 6800, cost: 4100 },
+        { month: 'Sep', revenue: 7500, cost: 4500 },
+        { month: 'Oct', revenue: 8200, cost: 4800 },
+        { month: 'Nov', revenue: 9100, cost: 5200 },
+        { month: 'Dec', revenue: 9800, cost: 5500 },
+      ];
+      const lineData = rawData.flatMap((d) => [
+        { month: d.month, type: 'revenue', value: d.revenue },
+        { month: d.month, type: 'cost', value: d.cost },
+      ]);
 
-    chart.options({
-      type: 'line',
-      data: lineData,
-      encode: {
-        x: 'month',
-        y: 'value',
-        color: 'type',
-      },
-      scale: {
-        color: {
-          range: ['#5B8FF9', '#F4664A'],
+      chart.options({
+        type: 'line',
+        data: lineData,
+        encode: {
+          x: 'month',
+          y: 'value',
+          color: 'type',
         },
-      },
-      axis: {
-        x: { title: 'Month' },
-        y: { title: 'Amount ($)' },
-      },
-      legend: {
-        color: {
-          title: false,
-          position: 'top',
+        scale: {
+          color: {
+            range: ['#5B8FF9', '#F4664A'],
+          },
         },
-      },
-    });
+        axis: {
+          x: { title: 'Month' },
+          y: { title: 'Amount ($)' },
+        },
+        legend: {
+          color: {
+            title: false,
+            position: 'top',
+          },
+        },
+      });
 
-    void chart.render();
-
+      await chart.render();
+    };
+    void setupChart();
     return () => {
-      chart.destroy();
+      isDisposed = true;
+      chart?.destroy();
     };
   }, []);
 
   // Initialize Bar Chart
   useEffect(() => {
-    if (!barChartRef.current) return;
+    let chart: any;
+    let isDisposed = false;
+    const setupChart = async () => {
+      if (!barChartRef.current) return;
+      const Chart = await loadChart();
+      if (!barChartRef.current || isDisposed) return;
 
-    const chart = new Chart({
-      container: barChartRef.current,
-      autoFit: true,
-    });
+      chart = new Chart({
+        container: barChartRef.current,
+        autoFit: true,
+      });
 
-    chart.options({
-      type: 'interval',
-      data: [
-        { category: 'Electronics', sales: 8500 },
-        { category: 'Clothing', sales: 6200 },
-        { category: 'Books', sales: 4300 },
-        { category: 'Home', sales: 5800 },
-        { category: 'Sports', sales: 3900 },
-        { category: 'Toys', sales: 3200 },
-      ],
-      encode: {
-        x: 'category',
-        y: 'sales',
-        color: 'category',
-      },
-      scale: {
-        color: {
-          range: ['#5B8FF9', '#61DDAA', '#F6BD16', '#F4664A', '#9270CA', '#FF99C3'],
+      chart.options({
+        type: 'interval',
+        data: [
+          { category: 'Electronics', sales: 8500 },
+          { category: 'Clothing', sales: 6200 },
+          { category: 'Books', sales: 4300 },
+          { category: 'Home', sales: 5800 },
+          { category: 'Sports', sales: 3900 },
+          { category: 'Toys', sales: 3200 },
+        ],
+        encode: {
+          x: 'category',
+          y: 'sales',
+          color: 'category',
         },
-      },
-      axis: {
-        x: { title: 'Category' },
-        y: { title: 'Sales ($)' },
-      },
-      legend: false,
-      // @ts-expect-error - label property not in G2 types
-      label: {
-        text: 'sales',
-        position: 'top',
-        style: {
-          fill: '#000',
+        scale: {
+          color: {
+            range: ['#5B8FF9', '#61DDAA', '#F6BD16', '#F4664A', '#9270CA', '#FF99C3'],
+          },
         },
-      },
-    });
+        axis: {
+          x: { title: 'Category' },
+          y: { title: 'Sales ($)' },
+        },
+        legend: false,
+        label: {
+          text: 'sales',
+          position: 'top',
+          style: {
+            fill: '#000',
+          },
+        },
+      });
 
-    void chart.render();
-
+      await chart.render();
+    };
+    void setupChart();
     return () => {
-      chart.destroy();
+      isDisposed = true;
+      chart?.destroy();
     };
   }, []);
 
   // Initialize Pie Chart
   useEffect(() => {
-    if (!pieChartRef.current) return;
+    let chart: any;
+    let isDisposed = false;
+    const setupChart = async () => {
+      if (!pieChartRef.current) return;
+      const Chart = await loadChart();
+      if (!pieChartRef.current || isDisposed) return;
 
-    const chart = new Chart({
-      container: pieChartRef.current,
-      autoFit: true,
-    });
+      chart = new Chart({
+        container: pieChartRef.current,
+        autoFit: true,
+      });
 
-    chart.options({
-      type: 'interval',
-      data: [
-        { type: 'Desktop', value: 45 },
-        { type: 'Mobile', value: 35 },
-        { type: 'Tablet', value: 15 },
-        { type: 'Other', value: 5 },
-      ],
-      coordinate: { type: 'theta', outerRadius: 0.8, innerRadius: 0.5 },
-      encode: {
-        y: 'value',
-        color: 'type',
-      },
-      scale: {
-        color: {
-          range: ['#5B8FF9', '#61DDAA', '#F6BD16', '#F4664A'],
-        },
-      },
-      legend: {
-        color: {
-          title: false,
-          position: 'right',
-        },
-        // @ts-expect-error - label property not in G2 types
-        label: {
-          text: (d: { type: string; value: number }) => `${d.type}\n${d.value}%`,
-          position: 'outside',
-          style: {
-            textAlign: 'center',
-          },
-        },
-      },
-      tooltip: {
-        title: 'type',
-        items: [
-          {
-            channel: 'y',
-            valueFormatter: (d) => `${d}%`,
-          },
+      chart.options({
+        type: 'interval',
+        data: [
+          { type: 'Desktop', value: 45 },
+          { type: 'Mobile', value: 35 },
+          { type: 'Tablet', value: 15 },
+          { type: 'Other', value: 5 },
         ],
-      },
-    });
+        coordinate: { type: 'theta', outerRadius: 0.8, innerRadius: 0.5 },
+        encode: {
+          y: 'value',
+          color: 'type',
+        },
+        scale: {
+          color: {
+            range: ['#5B8FF9', '#61DDAA', '#F6BD16', '#F4664A'],
+          },
+        },
+        legend: {
+          color: {
+            title: false,
+            position: 'right',
+          },
+          label: {
+            text: (d: { type: string; value: number }) => `${d.type}\n${d.value}%`,
+            position: 'outside',
+            style: {
+              textAlign: 'center',
+            },
+          },
+        },
+        tooltip: {
+          title: 'type',
+          items: [
+            {
+              channel: 'y',
+              valueFormatter: (d: number) => `${d}%`,
+            },
+          ],
+        },
+      });
 
-    void chart.render();
-
+      await chart.render();
+    };
+    void setupChart();
     return () => {
-      chart.destroy();
+      isDisposed = true;
+      chart?.destroy();
     };
   }, []);
 
   // Initialize Area Chart
   useEffect(() => {
-    if (!areaChartRef.current) return;
+    let chart: any;
+    let isDisposed = false;
+    const setupChart = async () => {
+      if (!areaChartRef.current) return;
+      const Chart = await loadChart();
+      if (!areaChartRef.current || isDisposed) return;
 
-    const chart = new Chart({
-      container: areaChartRef.current,
-      autoFit: true,
-    });
+      chart = new Chart({
+        container: areaChartRef.current,
+        autoFit: true,
+      });
 
-    chart.options({
-      type: 'area',
-      data: [
-        { quarter: 'Q1', category: 'Product A', value: 502 },
-        { quarter: 'Q1', category: 'Product B', value: 635 },
-        { quarter: 'Q1', category: 'Product C', value: 809 },
-        { quarter: 'Q2', category: 'Product A', value: 947 },
-        { quarter: 'Q2', category: 'Product B', value: 1402 },
-        { quarter: 'Q2', category: 'Product C', value: 1634 },
-        { quarter: 'Q3', category: 'Product A', value: 1268 },
-        { quarter: 'Q3', category: 'Product B', value: 1506 },
-        { quarter: 'Q3', category: 'Product C', value: 1106 },
-        { quarter: 'Q4', category: 'Product A', value: 1767 },
-        { quarter: 'Q4', category: 'Product B', value: 1221 },
-        { quarter: 'Q4', category: 'Product C', value: 1333 },
-      ],
-      encode: {
-        x: 'quarter',
-        y: 'value',
-        color: 'category',
-      },
-      transform: [{ type: 'stackY' }],
-      scale: {
-        color: {
-          range: ['#5B8FF9', '#61DDAA', '#F6BD16'],
+      chart.options({
+        type: 'area',
+        data: [
+          { quarter: 'Q1', category: 'Product A', value: 502 },
+          { quarter: 'Q1', category: 'Product B', value: 635 },
+          { quarter: 'Q1', category: 'Product C', value: 809 },
+          { quarter: 'Q2', category: 'Product A', value: 947 },
+          { quarter: 'Q2', category: 'Product B', value: 1402 },
+          { quarter: 'Q2', category: 'Product C', value: 1634 },
+          { quarter: 'Q3', category: 'Product A', value: 1268 },
+          { quarter: 'Q3', category: 'Product B', value: 1506 },
+          { quarter: 'Q3', category: 'Product C', value: 1106 },
+          { quarter: 'Q4', category: 'Product A', value: 1767 },
+          { quarter: 'Q4', category: 'Product B', value: 1221 },
+          { quarter: 'Q4', category: 'Product C', value: 1333 },
+        ],
+        encode: {
+          x: 'quarter',
+          y: 'value',
+          color: 'category',
         },
-      },
-      axis: {
-        x: { title: 'Quarter' },
-        y: { title: 'Sales Volume' },
-      },
-      legend: {
-        color: {
-          title: false,
-          position: 'top',
+        transform: [{ type: 'stackY' }],
+        scale: {
+          color: {
+            range: ['#5B8FF9', '#61DDAA', '#F6BD16'],
+          },
         },
-      },
-      style: {
-        fillOpacity: 0.6,
-      },
-    });
+        axis: {
+          x: { title: 'Quarter' },
+          y: { title: 'Sales Volume' },
+        },
+        legend: {
+          color: {
+            title: false,
+            position: 'top',
+          },
+        },
+        style: {
+          fillOpacity: 0.6,
+        },
+      });
 
-    void chart.render();
-
+      await chart.render();
+    };
+    void setupChart();
     return () => {
-      chart.destroy();
+      isDisposed = true;
+      chart?.destroy();
     };
   }, []);
 
