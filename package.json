@@ -14,28 +14,26 @@
     "test:coverage": "vp test run --coverage"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.1.0",
+    "@ant-design/icons": "^6.1.1",
     "@antv/g2": "^5.4.8",
-    "antd": "^6.3.2",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router": "^7.13.1"
+    "antd": "^6.3.5",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router": "^7.14.0"
   },
   "devDependencies": {
-    "@rolldown/plugin-babel": "^0.2.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "jsdom": "^28.1.0",
-    "sass": "^1.98.0",
+    "sass": "^1.99.0",
     "typescript": "^5.9.3",
     "vite-plugin-html": "^3.2.2",
     "vite-plus": "latest"
   },
-  "packageManager": "bun@1.0.0"
+  "packageManager": "pnpm@10.17.1"
 }

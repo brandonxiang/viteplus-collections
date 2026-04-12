@@ -5,3 +5,4 @@ dist
 .react-router
 .env
 coverage
+build
