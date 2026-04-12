@@ -33,7 +33,8 @@
     "sass": "^1.99.0",
     "typescript": "^5.9.3",
     "vite-plugin-html": "^3.2.2",
-    "vite-plus": "latest"
+    "vite-plus": "latest",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest"
   },
   "packageManager": "pnpm@10.17.1"
 }

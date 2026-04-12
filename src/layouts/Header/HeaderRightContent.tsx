@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { LogoutOutlined } from '@ant-design/icons';
 import { Dropdown, Avatar, MenuProps } from 'antd';
 import styles from './index.module.scss';
@@ -10,12 +10,11 @@ interface HeaderProps {
   };
 }
 
-export class HeaderRightContent extends React.PureComponent<HeaderProps> {
-  render() {
-    const { onMenuClick, user } = this.props;
-    const { name, picture } = user;
+export function HeaderRightContent({ onMenuClick, user }: HeaderProps) {
+  const { name, picture } = user;
 
-    const items: MenuProps['items'] = [
+  const items: MenuProps['items'] = useMemo(
+    () => [
       {
         label: (
           <>
@@ -26,17 +25,18 @@ export class HeaderRightContent extends React.PureComponent<HeaderProps> {
         key: 'logout',
         onClick: onMenuClick,
       },
-    ];
+    ],
+    [onMenuClick],
+  );
 
-    return (
-      <div className={styles.right}>
-        <Dropdown menu={{ items }}>
-          <span className={styles.action}>
-            <Avatar size="small" src={picture} alt="avatar" />
-            <span className={styles.name}>{name}</span>
-          </span>
-        </Dropdown>
-      </div>
-    );
-  }
+  return (
+    <div className={styles.right}>
+      <Dropdown menu={{ items }}>
+        <span className={styles.action}>
+          <Avatar size="small" src={picture} alt="avatar" />
+          <span className={styles.name}>{name}</span>
+        </span>
+      </Dropdown>
+    </div>
+  );
 }

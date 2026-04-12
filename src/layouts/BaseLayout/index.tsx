@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
 import { Layout } from 'antd';
 import { Header } from '../Header';
 import { BaseMenu } from '../Menu';
@@ -14,44 +14,40 @@ interface PageLayoutProps {
   children?: ReactNode;
 }
 
-class PageLayout extends PureComponent<PageLayoutProps> {
-  onMenuClick = () => {};
+function PageLayout({ children }: PageLayoutProps) {
+  const onMenuClick = useCallback(() => {}, []);
 
-  render() {
-    const { children } = this.props;
-
-    return (
-      <Layout style={{ minHeight: '100vh' }} hasSider>
-        <Sider
-          collapsible={false}
-          style={{
-            overflow: 'auto',
-            height: '100vh',
-          }}
-          width="280"
-        >
-          <div className={styles.logo}>
-            <div className={styles.text}>
-              <span style={{ fontSize: '28px' }}>Admin</span>
-              <span
-                style={{
-                  fontSize: '28px',
-                  color: APP_ENV === 'live' ? 'red' : 'white',
-                }}
-              >
-                {APP_ENV?.toUpperCase()}
-              </span>
-            </div>
+  return (
+    <Layout style={{ minHeight: '100vh' }} hasSider>
+      <Sider
+        collapsible={false}
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+        }}
+        width="280"
+      >
+        <div className={styles.logo}>
+          <div className={styles.text}>
+            <span style={{ fontSize: '28px' }}>Admin</span>
+            <span
+              style={{
+                fontSize: '28px',
+                color: APP_ENV === 'live' ? 'red' : 'white',
+              }}
+            >
+              {APP_ENV?.toUpperCase()}
+            </span>
           </div>
-          <BaseMenu menu={menus} theme="dark" mode="inline" />
-        </Sider>
-        <Layout>
-          <Header user={{ name: 'admin user' }} onMenuClick={this.onMenuClick} />
-          <Content className={styles.content}>{children}</Content>
-        </Layout>
+        </div>
+        <BaseMenu menu={menus} theme="dark" mode="inline" />
+      </Sider>
+      <Layout>
+        <Header user={{ name: 'admin user' }} onMenuClick={onMenuClick} />
+        <Content className={styles.content}>{children}</Content>
       </Layout>
-    );
-  }
+    </Layout>
+  );
 }
 
 export const ContentLayout = PageLayout;
