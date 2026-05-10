@@ -197,7 +197,7 @@ export default defineConfig({
     sourcemap: mode === 'production',
     rollupOptions: {
       output: {
-        advancedChunks: {
+        codeSplitting: {
           groups: [
             { name: 'react', test: /\/react(?:-dom|-router)?/ },
             { name: 'antd', test: /\/antd\/.*/ },
@@ -206,6 +206,9 @@ export default defineConfig({
         },
       },
     },
+  },
+  ssr: {
+    noExternal: ['antd', '@ant-design/icons', /^@rc-component\//, /^rc-/],
   },
   css: {
     preprocessorOptions: {

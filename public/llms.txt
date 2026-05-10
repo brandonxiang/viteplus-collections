@@ -1,0 +1,8 @@
+# Vite Antd Starter
+
+Vite Antd Starter is a React Router, Vite, and Ant Design admin dashboard starter with routing, charts, and table examples.
+
+## Links
+
+- [Application home](/)
+- [Project README](https://github.com/brandonxiang/vite-antd-starter#readme)
