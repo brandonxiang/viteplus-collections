@@ -16,7 +16,7 @@ export function Layout({ children }: { children: ReactNode }) {
           content="A Vite, React Router, and Ant Design starter admin dashboard with routing, charts, and table examples."
         />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-        <title>Vite Antd Starter Admin</title>
+        <title>VitePlus Antd Admin</title>
         <Meta />
         <Links />
       </head>

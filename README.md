@@ -1,16 +1,16 @@
 <p align="center">
-  <a href="https://github.com/brandonxiang/vite-antd-starter">
-    <img src="./public/logo.svg" width="120px" alt="Vite Antd Starter Logo" />
+  <a href="https://github.com/brandonxiang/viteplus-antd">
+    <img src="./public/logo.svg" width="120px" alt="VitePlus Antd Logo" />
   </a>
 </p>
 
-<h1 align="center">Vite Antd Starter</h1>
+<h1 align="center">VitePlus Antd</h1>
 <p align="center">Modern React SPA template with React Router Data Mode, Ant Design 6 & Vite+</p>
 
 <p align="center">
-  <a href="https://github.com/brandonxiang/vite-antd-starter/stargazers"><img src="https://img.shields.io/github/stars/brandonxiang/vite-antd-starter" alt="Stars"></a>
-  <a href="https://github.com/brandonxiang/vite-antd-starter/issues"><img src="https://img.shields.io/github/issues/brandonxiang/vite-antd-starter" alt="Issues"></a>
-  <a href="https://github.com/brandonxiang/vite-antd-starter/blob/main/LICENSE"><img src="https://img.shields.io/github/license/brandonxiang/vite-antd-starter" alt="License"></a>
+  <a href="https://github.com/brandonxiang/viteplus-antd/stargazers"><img src="https://img.shields.io/github/stars/brandonxiang/viteplus-antd" alt="Stars"></a>
+  <a href="https://github.com/brandonxiang/viteplus-antd/issues"><img src="https://img.shields.io/github/issues/brandonxiang/viteplus-antd" alt="Issues"></a>
+  <a href="https://github.com/brandonxiang/viteplus-antd/blob/main/LICENSE"><img src="https://img.shields.io/github/license/brandonxiang/viteplus-antd" alt="License"></a>
 </p>
 
 ## ✨ Why This Template
@@ -21,6 +21,23 @@ This is the fastest way to start a modern React SPA with:
 - **Ant Design 6** with its latest component improvements and theming system
 - **Vite+** unified toolchain (`vp`) for dev/build/test/lint/format
 - **Full TypeScript** support for type-safe development
+
+## 📦 How to Use
+
+```bash
+# Create the project
+vp create brandonxiang/viteplus-antd my-app
+cd my-app
+
+# Install dependencies
+vp install
+
+# Start development server
+vp dev
+
+# Build for production
+vp build
+```
 
 ## 🚀 Key Technologies
 
@@ -147,23 +164,6 @@ vp test
 vp build
 ```
 
-## 📦 Installation
-
-```bash
-# Clone the template
-npx degit brandonxiang/vite-antd-starter my-app
-cd my-app
-
-# Install dependencies
-vp install
-
-# Start development server
-vp dev
-
-# Build for production
-vp build
-```
-
 ## 🛠️ Development
 
 ```bash
@@ -176,7 +176,7 @@ vp build            # Build for production
 ## 📁 Project Structure
 
 ```
-vite-antd-starter/
+viteplus-antd/
 ├── public/              # Static assets
 ├── src/
 │   ├── components/      # Reusable components
