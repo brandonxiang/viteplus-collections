@@ -22,6 +22,26 @@ This is the fastest way to start a modern React SPA with:
 - **Vite+** unified toolchain (`vp`) for dev/build/test/lint/format
 - **Full TypeScript** support for type-safe development
 
+## ✅ Lighthouse 100
+
+The template is tuned for a perfect desktop Lighthouse baseline:
+
+| Category         | Score |
+| ---------------- | ----- |
+| Performance      | 100   |
+| Accessibility    | 100   |
+| Best Practices   | 100   |
+| SEO              | 100   |
+| Agentic Browsing | 100   |
+
+Recheck locally after changes:
+
+```bash
+vp build
+vp preview
+npx lighthouse http://127.0.0.1:4173/ --preset=desktop
+```
+
 ## 📦 How to Use
 
 ```bash
