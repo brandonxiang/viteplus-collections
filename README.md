@@ -24,10 +24,10 @@ The repository itself is a monorepo. The root package is the catalog and release
 
 | Template               | Source directory                 | Best for                                                     |
 | ---------------------- | -------------------------------- | ------------------------------------------------------------ |
-| `viteplus-antd`        | `templates/viteplus-antd`        | React SPA admin dashboards with Ant Design and React Router  |
-| `viteplus-antd-ssr`    | `templates/viteplus-antd-ssr`    | Server-rendered React Router applications with Ant Design    |
-| `viteplus-antd-mobile` | `templates/viteplus-antd-mobile` | Mobile-first React applications with Ant Design Mobile       |
-| `viteplus-fastify`     | `templates/viteplus-fastify`     | Fastify API and full-stack service starters powered by Vite+ |
+| `viteplus-antd`        | [`templates/viteplus-antd`](./templates/viteplus-antd/)        | React SPA admin dashboards with Ant Design and React Router  |
+| `viteplus-antd-ssr`    | [`templates/viteplus-antd-ssr`](./templates/viteplus-antd-ssr/)    | Server-rendered React Router applications with Ant Design    |
+| `viteplus-antd-mobile` | [`templates/viteplus-antd-mobile`](./templates/viteplus-antd-mobile/) | Mobile-first React applications with Ant Design Mobile       |
+| `viteplus-fastify`     | [`templates/viteplus-fastify`](./templates/viteplus-fastify)     | Fastify API and full-stack service starters powered by Vite+ |
 
 ## Usage
 
@@ -107,10 +107,3 @@ After publishing, verify the manifest through Vite+:
 ```bash
 vp create @brandonxiang --no-interactive
 ```
-
-## Related Repositories
-
-- [viteplus-collections](https://github.com/brandonxiang/viteplus-collections)
-- [viteplus-antd-ssr](https://github.com/brandonxiang/viteplus-antd-ssr)
-- [viteplus-antd-mobile](https://github.com/brandonxiang/viteplus-antd-mobile)
-- [fastify-starter](https://github.com/brandonxiang/fastify-starter)
