@@ -1,0 +1,31 @@
+@use './../../style/index.scss' as *;
+
+.logo {
+  padding: 10px;
+  .text {
+    display: inline-block;
+    width: 100%;
+    font-size: 28px;
+    border-radius: 15px 5px 15px 0;
+    text-align: center;
+    color: #fff;
+    background-color: #2d8cf0;
+  }
+
+  img {
+    margin-left: 6px;
+    height: 100%;
+  }
+
+  span {
+    margin-left: 12px;
+    font-size: 24px;
+    color: $white;
+    vertical-align: middle;
+  }
+}
+
+.content {
+  height: calc(100vh - 64px - 54px);
+  overflow: auto;
+}

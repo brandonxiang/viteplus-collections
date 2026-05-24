@@ -1,0 +1,8 @@
+# VitePlus Antd Mobile
+
+VitePlus Antd Mobile is a React, Vite+, and Ant Design Mobile app template with tab navigation and mobile page examples.
+
+## Links
+
+- [Application home](/)
+- [Project README](https://github.com/brandonxiang/viteplus-antd-mobile#readme)

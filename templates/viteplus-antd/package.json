@@ -1,0 +1,40 @@
+{
+  "name": "viteplus-antd",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vp dev",
+    "start": "vp dev",
+    "build": "vp build",
+    "prepare": "vp config",
+    "check": "vp check",
+    "ts-check": "tsc --noEmit",
+    "lint": "vp lint --fix",
+    "format": "vp fmt",
+    "test": "vp test",
+    "test:coverage": "vp test run --coverage"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.2.2",
+    "@antv/g2": "^5.4.8",
+    "antd": "^6.3.7",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router": "^7.15.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.6.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
+    "sass": "^1.99.0",
+    "typescript": "^6.0.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.20",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plus": "latest"
+  },
+  "packageManager": "pnpm@10.17.1"
+}

@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  box-sizing: border-box;
+  cursor: default;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.layout {
+  margin: 24px;
+  background-color: transparent;
+}
+
+html .m20 {
+  margin: 20px;
+}
+html .p20 {
+  padding: 20px;
+}
+html .mt10 {
+  margin-top: 10px;
+}
+
+html .mb10 {
+  margin-bottom: 10px;
+}
+
+html .mt20 {
+  margin-top: 20px;
+}
+
+html .mb20 {
+  margin-bottom: 20px;
+}
+
+html .ml10 {
+  margin-left: 10px;
+}
+
+html .ml20 {
+  margin-left: 20px;
+}
+
+html .m10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+html .pd10 {
+  padding: 10px;
+}
+
+.ant-layout {
+  display: flex;
+  flex: auto;
+  min-width: 0;
+}
+
+.ant-layout-has-sider {
+  flex-direction: row;
+}
+
+.ant-layout .ant-layout {
+  flex-direction: column;
+}
+
+.ant-layout-sider {
+  position: relative;
+  min-width: 0;
+  background: #001529;
+}
+
+.ant-layout-content {
+  flex: auto;
+  min-height: 0;
+}
+
+.ant-layout-header {
+  height: 64px;
+  line-height: 64px;
+}
+
+.ant-result {
+  padding: 48px 32px;
+}
+
+.ant-result-icon {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.ant-result-title {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 24px;
+  line-height: 1.333;
+  text-align: center;
+}
+
+.ant-result .ant-result-subtitle {
+  color: #595959;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5715;
+  text-align: center;
+}
+
+.ant-result-extra {
+  margin: 24px 0 0;
+  text-align: center;
+}
+
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 1.5715;
+  white-space: nowrap;
+}

@@ -1,0 +1,50 @@
+@use './../../style/index.scss' as *;
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header {
+  background: $white;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+
+  :global(.ant-dropdown-menu-item) {
+    min-width: 160px;
+  }
+}
+
+.right {
+  margin-left: auto;
+  height: 100%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+
+  .action {
+    cursor: pointer;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+    height: 100%;
+  }
+
+  .name {
+    margin: 0 0 0 8px;
+  }
+}

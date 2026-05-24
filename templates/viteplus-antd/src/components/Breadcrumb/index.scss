@@ -1,0 +1,8 @@
+@use './../../style/index.scss' as *;
+
+.ant-breadcrumb {
+  background: $white;
+  padding: 16px 32px;
+  width: 500px;
+  display: inline-block;
+}

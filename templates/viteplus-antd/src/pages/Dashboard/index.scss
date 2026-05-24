@@ -1,0 +1,127 @@
+.dashboard-page {
+  padding: 16px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+
+  .stats-row {
+    margin-bottom: 16px;
+  }
+
+  .stat-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .ant-statistic {
+      .ant-statistic-title {
+        color: #666;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .ant-statistic-content {
+        font-size: 24px;
+        font-weight: 600;
+
+        .anticon {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .stat-footer {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #f0f0f0;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+
+  .chart-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 16px;
+
+    .ant-card-head {
+      border-bottom: 1px solid #f0f0f0;
+
+      .ant-card-head-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #262626;
+      }
+    }
+
+    .ant-card-body {
+      padding: 24px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .dashboard-page {
+    padding: 8px;
+
+    .stat-card {
+      margin-bottom: 8px;
+
+      .ant-statistic-content {
+        font-size: 20px !important;
+      }
+    }
+
+    .chart-card {
+      margin-bottom: 12px;
+
+      .ant-card-body {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .dashboard-page {
+    background-color: #141414;
+
+    .stat-card,
+    .chart-card {
+      background-color: #1f1f1f;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
+      }
+    }
+
+    .stat-card {
+      .ant-statistic-title {
+        color: #bfbfbf;
+      }
+
+      .stat-footer {
+        border-top-color: #303030;
+        color: #8c8c8c;
+      }
+    }
+
+    .chart-card {
+      .ant-card-head {
+        border-bottom-color: #303030;
+
+        .ant-card-head-title {
+          color: #e8e8e8;
+        }
+      }
+    }
+  }
+}

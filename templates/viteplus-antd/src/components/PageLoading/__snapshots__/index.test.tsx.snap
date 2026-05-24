@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageLoading > should render correctly 1`] = `
+<div
+  style="padding-top: 100px; text-align: center;"
+>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-dev-only-do-not-override-1iftmj9 css-var-root"
+  >
+    <span
+      class="ant-spin-dot-holder"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+</div>
+`;

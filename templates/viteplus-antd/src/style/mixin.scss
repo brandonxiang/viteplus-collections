@@ -1,0 +1,175 @@
+//清除浮动clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+//FLex布局
+@mixin align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//常规布局
+@mixin center($width: null, $height: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @if not $width and not $height {
+    transform: translate(-50%, -50%);
+  } @else if $width and $height {
+    width: $width;
+    height: $height;
+    margin-top: -($whidth/2);
+    margin-left: -($whidth/2);
+  } @else if not $height {
+    width: $width;
+    margin-left: -($width / 2);
+    transform: translateY(-50%);
+  } @else {
+    height: $height;
+    margin-top: -($height / 2);
+    transform: translateX(-50%);
+  }
+}
+
+//媒体查询
+@mixin screen($min, $max) {
+  @media screen and (min-width: $min) and (maxd-width: $max) {
+    @content; //@content代表内容是自定义的
+  }
+}
+
+@mixin min-screen($width) {
+  @media screen and (min-screen: $widht) {
+    @content;
+  }
+}
+
+@mixin max-screen($width) {
+  @media screen and (max-screen: $width) {
+    @content;
+  }
+}
+
+//常用字体  黑体、楷体、宋体、仿宋
+@mixin font-hei() {
+  font-family:
+    -apple-system, 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans',
+    'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN', 'Source Han Sans SC',
+    'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei,
+    'WenQuanYi Zen Hei Sharp', sans-serif;
+}
+
+@mixin font-kai() {
+  font-family:
+    Baskerville, Georgia, 'Liberation Serif', 'Kaiti SC', STKaiti, 'AR PL UKai CN', 'AR PL UKai HK',
+    'AR PL UKai TW', 'AR PL UKai TW MBE', 'AR PL KaitiM GB', KaiTi, KaiTi_GB2312, 'TW\-Kai', serif;
+}
+
+@mixin font-song() {
+  font-family:
+    Georgia, 'Nimbus Roman No9 L', 'Songti SC', STSong, 'AR PL New Sung', 'AR PL SungtiL GB',
+    NSimSun, SimSun, 'TW\-Sung', 'WenQuanYi Bitmap Song', 'AR PL UMing CN', 'AR PL UMing HK',
+    'AR PL UMing TW', 'AR PL UMing TW MBE', PMingLiU, MingLiU, serif;
+}
+
+@mixin font-fang-song() {
+  font-family:
+    Baskerville, 'Times New Roman', 'Liberation Serif', STFangsong, FangSong, FangSong_GB2312,
+    'CWTEX\-F', serif;
+}
+
+//超出显示省略号
+//$line:超出显示几行省略号
+//$substract:预留区域百分比
+@mixin text-overflow($line: 1, $substract: 0) {
+  overflow: hidden;
+
+  @if $line==1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100% (-$substract);
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}
+
+//1px边框
+
+@mixin border-1px($color: $color, $poses: $border-poses) {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+
+    @each $pos in $poses {
+      border-#{$pos}: 1px solid $color;
+      #{$pos}: 0;
+    }
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+  .border-1px {
+    &::after {
+      -webkit-transform: scaleY(0.7);
+      transform: scaleY(0.7);
+    }
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+  .border-1px {
+    &::after {
+      -webkit-transform: scaleY(0.5); //像素比为2的时候，我们设置缩放为0.5
+      transform: scaleY(0.5);
+    }
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .border-1px {
+    &::after {
+      -webkit-transform: scaleY(0.333333); //像素比为3的时候，我们设置缩放为0.33333
+      transform: scaleY(0.333333);
+    }
+  }
+}
+
+//三角形
+@mixin triangle($width: 10px, $height: 10px, $color: red, $direction: top) {
+  $angle-direction: (
+    top: bottom left right,
+    bottom: top left right,
+    left: right top bottom,
+    right: left top bottom,
+  );
+  $conf: map-get($angle-direction, $direction);
+
+  @if $direction==top or $direction==bottom {
+    $width: $width/2;
+  } @else {
+    $height: $height/2;
+  }
+
+  width: 0;
+  height: 0;
+  border-#{nth($conf, 1)}: $height solid $color;
+  border-#{nth($conf, 2)}: $width solid transparent;
+  border-#{nth($conf, 3)}: $width solid transparent;
+}

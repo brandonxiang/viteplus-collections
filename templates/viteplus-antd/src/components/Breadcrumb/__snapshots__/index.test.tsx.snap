@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb > should render correctly 1`] = `
+<nav
+  class="ant-breadcrumb css-dev-only-do-not-override-1iftmj9 css-var-root"
+>
+  <ol>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          data-discover="true"
+          href="/dashboard"
+        >
+          Dashboard
+        </a>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;

@@ -1,0 +1,8 @@
+# VitePlus Antd SSR
+
+VitePlus Antd SSR is a React Router Framework, Vite+, and Ant Design admin dashboard template with SSR, optional SSG, routing, charts, and table examples.
+
+## Links
+
+- [Application home](/)
+- [Project README](https://github.com/brandonxiang/viteplus-antd-ssr#readme)

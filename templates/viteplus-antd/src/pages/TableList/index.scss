@@ -1,0 +1,48 @@
+.table-list-page {
+  padding: 16px;
+
+  .search-card {
+    margin-bottom: 16px;
+
+    .search-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      .ant-form-item {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .table-card {
+    .ant-card-head {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .ant-card-body {
+      padding: 24px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .table-list-page {
+    padding: 8px;
+
+    .search-card {
+      .search-form {
+        .ant-form-item {
+          width: 100%;
+
+          .ant-input,
+          .ant-select,
+          .ant-picker {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}
