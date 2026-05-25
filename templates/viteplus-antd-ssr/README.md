@@ -47,7 +47,7 @@ npx lighthouse http://127.0.0.1:4173/ --preset=desktop
 
 ```bash
 # Create the project
-vp create brandonxiang/viteplus-antd-ssr my-app
+vp create @brandonxiang:viteplus-antd-ssr my-app
 cd my-app
 
 # Install dependencies
@@ -157,6 +157,8 @@ vp check                       # Format + lint + type-check
 vp test                        # Run tests
 vp exec react-router build     # Build framework output
 ```
+
+Need to extend the generated app? Follow the [starter recipes](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/recipes.md) for copyable Ant Design page and Fastify API examples. If setup gets stuck, use the [troubleshooting guide](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/troubleshooting.md).
 
 ## Project Structure
 

@@ -69,7 +69,7 @@ npx lighthouse http://127.0.0.1:4173/ --preset=desktop
 ### 1) Create project
 
 ```bash
-vp create brandonxiang/viteplus-antd-mobile my-app
+vp create @brandonxiang:viteplus-antd-mobile my-app
 cd my-app
 ```
 
@@ -97,6 +97,8 @@ vp build
 vp check
 vp test
 ```
+
+Need to extend the generated app? Follow the [starter recipes](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/recipes.md) for copyable mobile page and API examples. If setup gets stuck, use the [troubleshooting guide](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/troubleshooting.md).
 
 ## Available commands
 
@@ -136,4 +138,4 @@ vp test
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/brandonxiang/viteplus-collections/blob/main/LICENSE)

@@ -2,12 +2,31 @@
   "name": "@brandonxiang/create",
   "version": "1.0.0",
   "description": "Vite+ template catalog for Brandon Xiang projects.",
+  "keywords": [
+    "antd",
+    "create",
+    "fastify",
+    "react",
+    "template",
+    "typescript",
+    "vite",
+    "vite-plus"
+  ],
+  "homepage": "https://github.com/brandonxiang/viteplus-collections#readme",
+  "bugs": {
+    "url": "https://github.com/brandonxiang/viteplus-collections/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonxiang/viteplus-collections.git"
+  },
   "workspaces": [
     "templates/*"
   ],
   "files": [
     "assets",
+    "docs",
     "README.md",
     "templates"
   ],

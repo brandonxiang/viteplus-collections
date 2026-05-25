@@ -8,6 +8,7 @@
     "build": "tsc && vp build",
     "preview": "vp preview",
     "prepare": "vp config",
+    "check": "vp check",
     "test": "vp test run",
     "lint": "vp lint --fix",
     "format": "vp fmt"

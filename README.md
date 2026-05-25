@@ -18,16 +18,16 @@
 
 This repository publishes `@brandonxiang/create`, a Vite+ organization-style template package. `vp create @brandonxiang` reads the root `createConfig.templates` manifest and scaffolds one of the bundled templates from `templates/*`.
 
-The repository itself is a monorepo. The root package is the catalog and release unit; each directory under `templates/` is a complete starter project with its own dependencies, lockfile, Vite+ configuration, tests, and documentation.
+The repository itself is a monorepo. The root package is the catalog and release unit; each directory under `templates/` is a complete starter project with its own dependencies, lockfile, Vite+ configuration, tests, and documentation. Start from the [docs index](./docs/README.md) when you need the full guide set.
 
 ## Templates
 
-| Template               | Source directory                 | Best for                                                     |
-| ---------------------- | -------------------------------- | ------------------------------------------------------------ |
-| `viteplus-antd`        | [`templates/viteplus-antd`](./templates/viteplus-antd/)        | React SPA admin dashboards with Ant Design and React Router  |
-| `viteplus-antd-ssr`    | [`templates/viteplus-antd-ssr`](./templates/viteplus-antd-ssr/)    | Server-rendered React Router applications with Ant Design    |
+| Template               | Source directory                                                      | Best for                                                     |
+| ---------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `viteplus-antd`        | [`templates/viteplus-antd`](./templates/viteplus-antd/)               | React SPA admin dashboards with Ant Design and React Router  |
+| `viteplus-antd-ssr`    | [`templates/viteplus-antd-ssr`](./templates/viteplus-antd-ssr/)       | Server-rendered React Router applications with Ant Design    |
 | `viteplus-antd-mobile` | [`templates/viteplus-antd-mobile`](./templates/viteplus-antd-mobile/) | Mobile-first React applications with Ant Design Mobile       |
-| `viteplus-fastify`     | [`templates/viteplus-fastify`](./templates/viteplus-fastify)     | Fastify API and full-stack service starters powered by Vite+ |
+| `viteplus-fastify`     | [`templates/viteplus-fastify`](./templates/viteplus-fastify)          | Fastify API and full-stack service starters powered by Vite+ |
 
 ## Usage
 
@@ -46,6 +46,8 @@ vp create @brandonxiang:viteplus-antd-mobile my-mobile-app
 vp create @brandonxiang:viteplus-fastify my-api
 ```
 
+Not sure which template to choose? Use the [starter playbook](./docs/starter-playbook.md) for the first-hour checklist and starter boundaries, or compare templates in the [capability matrix](./docs/template-capabilities.md). When you are ready to extend a generated project, follow the [starter recipes](./docs/recipes.md). If setup gets stuck, use [troubleshooting](./docs/troubleshooting.md). For what to build next, use the [ecosystem roadmap](./docs/ecosystem-roadmap.md).
+
 Then install and start the generated project:
 
 ```bash
@@ -60,6 +62,15 @@ vp dev
 .
 ├── assets/
 │   └── logo.svg
+├── docs/
+│   ├── README.md
+│   ├── ecosystem-roadmap.md
+│   ├── recipes.md
+│   ├── release-checklist.md
+│   ├── starter-playbook.md
+│   ├── template-capabilities.md
+│   ├── template-contract.md
+│   └── troubleshooting.md
 ├── templates/
 │   ├── viteplus-antd/
 │   ├── viteplus-antd-ssr/
@@ -85,7 +96,13 @@ vp check
 vp test
 ```
 
-Inspect the package contents before publishing:
+GitHub Actions runs the same catalog gate on pull requests and pushes to `main`.
+
+The root tests verify that `createConfig.templates`, template directories, published files, and first-run README instructions stay aligned.
+
+When adding or changing a starter, follow the [template contract](./docs/template-contract.md).
+
+Before publishing, follow the [release checklist](./docs/release-checklist.md). To inspect the package contents:
 
 ```bash
 vp pm pack
@@ -99,6 +116,7 @@ The package is published as `@brandonxiang/create`. The published package includ
 
 - `README.md`
 - `assets/`
+- `docs/`
 - `templates/`
 - the root `createConfig.templates` manifest in `package.json`
 

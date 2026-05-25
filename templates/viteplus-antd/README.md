@@ -187,6 +187,8 @@ vp test
 vp build
 ```
 
+Need to extend the generated app? Follow the [starter recipes](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/recipes.md) for copyable Ant Design page and Fastify API examples. If setup gets stuck, use the [troubleshooting guide](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/troubleshooting.md).
+
 ## 🛠️ Development
 
 ```bash

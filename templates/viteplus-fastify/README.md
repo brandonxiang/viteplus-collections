@@ -60,7 +60,7 @@ Choose this template when you want a small Fastify application that is already r
 Create a new project from this template with Vite+:
 
 ```bash
-vp create brandonxiang/viteplus-fastify my-fastify-app
+vp create @brandonxiang:viteplus-fastify my-fastify-app
 cd my-fastify-app
 vp install
 vp run dev
@@ -69,7 +69,7 @@ vp run dev
 If you want to keep the default generated directory name, omit the target folder:
 
 ```bash
-vp create brandonxiang/viteplus-fastify
+vp create @brandonxiang:viteplus-fastify
 ```
 
 Then visit:
@@ -127,8 +127,8 @@ Then visit:
 | `vp fmt`              | Format code with Oxfmt                           |
 | `vp fmt --check`      | Check code formatting                            |
 | `vp test`             | Run tests                                        |
-| `vp run deps:check`   | Check for outdated dependencies                  |
-| `vp run deps:update`  | Update dependencies                              |
+
+Need to extend the generated app? Follow the [starter recipes](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/recipes.md) for copyable Fastify API and Ant Design page examples. If setup gets stuck, use the [troubleshooting guide](https://github.com/brandonxiang/viteplus-collections/blob/main/docs/troubleshooting.md).
 
 ## Project Structure
 
