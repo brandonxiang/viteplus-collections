@@ -13,20 +13,21 @@ const Home = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <main style={{ textAlign: 'center' }}>
       <Result
         status="info"
         title={`Welcome to admin platform! ${count}`}
         subTitle="Please choose the menu on the left side!"
       />
       <Button
+        aria-label={`Click count: ${count}`}
         onClick={() => {
           setCount(count + 1);
         }}
       >
         Click me
       </Button>
-    </div>
+    </main>
   );
 };
 

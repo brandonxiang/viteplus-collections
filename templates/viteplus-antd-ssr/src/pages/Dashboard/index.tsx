@@ -272,96 +272,120 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="dashboard-page">
+    <main className="dashboard-page">
       {/* Statistics Cards */}
-      <Row gutter={[16, 16]} className="stats-row">
-        <Col xs={24} sm={12} lg={6}>
-          <Card variant="borderless" className="stat-card">
-            <Statistic
-              title="Total Revenue"
-              value={98500}
-              precision={2}
-              prefix={<DollarOutlined />}
-              suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} />}
-              styles={{ content: { color: '#3f8600' } }}
-            />
-            <div className="stat-footer">
-              <span>+12.5% from last month</span>
-            </div>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} lg={6}>
-          <Card variant="borderless" className="stat-card">
-            <Statistic
-              title="Total Users"
-              value={12458}
-              prefix={<UserOutlined />}
-              suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} />}
-              styles={{ content: { color: '#3f8600' } }}
-            />
-            <div className="stat-footer">
-              <span>+8.3% from last month</span>
-            </div>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} lg={6}>
-          <Card variant="borderless" className="stat-card">
-            <Statistic
-              title="Total Orders"
-              value={3256}
-              prefix={<ShoppingCartOutlined />}
-              suffix={<ArrowDownOutlined style={{ color: '#cf1322' }} />}
-              styles={{ content: { color: '#cf1322' } }}
-            />
-            <div className="stat-footer">
-              <span>-2.1% from last month</span>
-            </div>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} lg={6}>
-          <Card variant="borderless" className="stat-card">
-            <Statistic
-              title="Conversion Rate"
-              value={3.24}
-              precision={2}
-              prefix={<LineChartOutlined />}
-              suffix="%"
-              styles={{ content: { color: '#1890ff' } }}
-            />
-            <div className="stat-footer">
-              <span>+0.5% from last month</span>
-            </div>
-          </Card>
-        </Col>
-      </Row>
+      <section aria-label="Statistics overview">
+        <Row gutter={[16, 16]} className="stats-row">
+          <Col xs={24} sm={12} lg={6}>
+            <Card variant="borderless" className="stat-card" aria-label="Total Revenue: $98,500">
+              <Statistic
+                title="Total Revenue"
+                value={98500}
+                precision={2}
+                prefix={<DollarOutlined aria-hidden="true" />}
+                suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} aria-hidden="true" />}
+                styles={{ content: { color: '#3f8600' } }}
+              />
+              <div className="stat-footer">
+                <span>+12.5% from last month</span>
+              </div>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={6}>
+            <Card variant="borderless" className="stat-card" aria-label="Total Users: 12,458">
+              <Statistic
+                title="Total Users"
+                value={12458}
+                prefix={<UserOutlined aria-hidden="true" />}
+                suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} aria-hidden="true" />}
+                styles={{ content: { color: '#3f8600' } }}
+              />
+              <div className="stat-footer">
+                <span>+8.3% from last month</span>
+              </div>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={6}>
+            <Card variant="borderless" className="stat-card" aria-label="Total Orders: 3,256">
+              <Statistic
+                title="Total Orders"
+                value={3256}
+                prefix={<ShoppingCartOutlined aria-hidden="true" />}
+                suffix={<ArrowDownOutlined style={{ color: '#cf1322' }} aria-hidden="true" />}
+                styles={{ content: { color: '#cf1322' } }}
+              />
+              <div className="stat-footer">
+                <span>-2.1% from last month</span>
+              </div>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} lg={6}>
+            <Card variant="borderless" className="stat-card" aria-label="Conversion Rate: 3.24%">
+              <Statistic
+                title="Conversion Rate"
+                value={3.24}
+                precision={2}
+                prefix={<LineChartOutlined aria-hidden="true" />}
+                suffix="%"
+                styles={{ content: { color: '#1890ff' } }}
+              />
+              <div className="stat-footer">
+                <span>+0.5% from last month</span>
+              </div>
+            </Card>
+          </Col>
+        </Row>
+      </section>
 
       {/* Charts Section */}
-      <Row gutter={[16, 16]}>
-        <Col xs={24} lg={16}>
-          <Card variant="borderless" title="Revenue & Cost Trend" className="chart-card">
-            <div ref={lineChartRef} style={{ height: '350px' }} />
-          </Card>
-        </Col>
-        <Col xs={24} lg={8}>
-          <Card variant="borderless" title="Device Distribution" className="chart-card">
-            <div ref={pieChartRef} style={{ height: '350px' }} />
-          </Card>
-        </Col>
-      </Row>
+      <section aria-label="Charts">
+        <Row gutter={[16, 16]}>
+          <Col xs={24} lg={16}>
+            <Card variant="borderless" title="Revenue & Cost Trend" className="chart-card">
+              <div
+                ref={lineChartRef}
+                role="img"
+                aria-label="Line chart showing revenue and cost trends over 12 months"
+                style={{ height: '350px' }}
+              />
+            </Card>
+          </Col>
+          <Col xs={24} lg={8}>
+            <Card variant="borderless" title="Device Distribution" className="chart-card">
+              <div
+                ref={pieChartRef}
+                role="img"
+                aria-label="Pie chart showing device distribution: Desktop 45%, Mobile 35%, Tablet 15%, Other 5%"
+                style={{ height: '350px' }}
+              />
+            </Card>
+          </Col>
+        </Row>
 
-      <Row gutter={[16, 16]}>
-        <Col xs={24} lg={12}>
-          <Card variant="borderless" title="Sales by Category" className="chart-card">
-            <div ref={barChartRef} style={{ height: '350px' }} />
-          </Card>
-        </Col>
-        <Col xs={24} lg={12}>
-          <Card variant="borderless" title="Product Performance" className="chart-card">
-            <div ref={areaChartRef} style={{ height: '350px' }} />
-          </Card>
-        </Col>
-      </Row>
-    </div>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} lg={12}>
+            <Card variant="borderless" title="Sales by Category" className="chart-card">
+              <div
+                ref={barChartRef}
+                role="img"
+                aria-label="Bar chart showing sales by category"
+                style={{ height: '350px' }}
+              />
+            </Card>
+          </Col>
+          <Col xs={24} lg={12}>
+            <Card variant="borderless" title="Product Performance" className="chart-card">
+              <div
+                ref={areaChartRef}
+                role="img"
+                aria-label="Area chart showing product performance by quarter"
+                style={{ height: '350px' }}
+              />
+            </Card>
+          </Col>
+        </Row>
+      </section>
+    </main>
   );
 };
 

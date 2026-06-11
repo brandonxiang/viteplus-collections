@@ -236,16 +236,17 @@ const TableList = () => {
   ];
 
   return (
-    <div className="table-list-page">
+    <main className="table-list-page">
       {/* Search Form */}
-      <Card className="search-card" bordered={false}>
+      <Card className="search-card" variant="outlined">
         <Form form={searchForm} layout="inline" className="search-form">
           <Form.Item name="name" label="Name">
             <Input placeholder="Please enter name" allowClear />
           </Form.Item>
 
           <Form.Item name="status" label="Status">
-            <Select placeholder="Please select status" allowClear style={{ width: 150 }}>
+            <Select placeholder="Please select status" allowClear style={{ width: 150 }}
+              aria-label="Status filter">
               <Select.Option value="active">Active</Select.Option>
               <Select.Option value="inactive">Inactive</Select.Option>
             </Select>
@@ -262,10 +263,12 @@ const TableList = () => {
                 icon={<SearchOutlined />}
                 onClick={handleSearch}
                 loading={loading}
+                aria-label="Search records"
               >
                 Search
               </Button>
-              <Button icon={<ReloadOutlined />} onClick={handleReset}>
+              <Button icon={<ReloadOutlined />} onClick={handleReset}
+                aria-label="Reset search form">
                 Reset
               </Button>
             </Space>
@@ -276,22 +279,25 @@ const TableList = () => {
       {/* Table Card */}
       <Card
         className="table-card"
-        bordered={false}
+        variant="outlined"
         title="Data List"
         extra={
-          <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
+          <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}
+            aria-label="Add new record">
             Add New
           </Button>
         }
       >
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          loading={loading}
-          pagination={pagination}
-          onChange={handleTableChange}
-          scroll={{ x: 1200 }}
-        />
+        <div role="region" aria-label="Data table">
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            loading={loading}
+            pagination={pagination}
+            onChange={handleTableChange}
+            scroll={{ x: 1200 }}
+          />
+        </div>
       </Card>
 
       {/* Add/Edit Modal */}
@@ -303,7 +309,8 @@ const TableList = () => {
         confirmLoading={loading}
         width={600}
       >
-        <Form form={modalForm} layout="vertical" initialValues={{ status: 'active' }}>
+        <Form form={modalForm} layout="vertical" initialValues={{ status: 'active' }}
+          role="form" aria-label={modalType === 'add' ? 'Add new record form' : 'Edit record form'}>
           <Form.Item
             name="name"
             label="Name"
@@ -340,7 +347,7 @@ const TableList = () => {
           </Form.Item>
         </Form>
       </Modal>
-    </div>
+    </main>
   );
 };
 
