@@ -11,6 +11,7 @@
 <title>VitePlus Collections · 模板目录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="VitePlus Collections 是 Brandon Xiang 的模板目录，包含 React SPA、SSR、Mobile 和 Fastify 全栈四种开箱即用的模板。">
+<meta name="theme-color" content="#1B365D">
 <meta property="og:title" content="VitePlus Collections · 模板目录">
 <meta property="og:description" content="React SPA / SSR / Mobile / Fastify — 四种模板，一个统一工具链。">
 <meta property="og:type" content="website">
@@ -18,6 +19,24 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="https://brandonxiang.github.io/viteplus-collections/logo.svg">
 <link rel="canonical" href="https://brandonxiang.github.io/viteplus-collections/">
+<!-- Preload critical fonts -->
+<link rel="preload" href="./TsangerJinKai02-W04.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./TsangerJinKai02-W05.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Preconnect for external logo -->
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "VitePlus Collections",
+  "description": "React SPA / SSR / Mobile / Fastify — 四种开箱即用的 Vite+ 模板",
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Vite+",
+    "applicationCategory": "DeveloperApplication"
+  }
+}
+</script>
 <style>
 /* ========== Kami Tokens ========== */
 @font-face {
@@ -284,17 +303,20 @@ section { margin-bottom: 80px; }
 
 /* ========== FAQ ========== */
 .faq-list { margin-top: 24px; }
-.faq-pair { margin-bottom: 24px; }
-.faq-pair:last-child { margin-bottom: 0; }
-.faq-pair dt {
+.faq-dt {
   font-weight: 500; font-size: 16px; color: var(--near-black);
   margin: 0 0 6px; letter-spacing: 0.1px;
 }
-.faq-pair dd {
+.faq-dd {
   font-size: 14px; line-height: 1.55; letter-spacing: 0.4px;
-  color: var(--olive); margin: 0;
+  color: var(--olive); margin: 0 0 24px;
 }
-.faq-pair code {
+.faq-dd:last-of-type { margin-bottom: 0; }
+.faq-list a {
+  color: var(--brand); text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.faq-list code {
   font-family: var(--mono); font-size: 12px; color: var(--brand);
   background: var(--brand-tint); padding: 1px 6px; border-radius: 3px;
 }
@@ -501,8 +523,8 @@ footer.foot {
     <div data-lang="en"><h2 class="section-title">Capability Matrix</h2>
     <p class="section-lede">Compare four templates at a glance to find the right starting point for your project.</p></div>
 
-    <div class="matrix-wrap">
-      <table class="matrix">
+    <div class="matrix-wrap" role="region" aria-label="Template comparison matrix">
+      <table class="matrix" aria-label="Compare capabilities across four templates">
         <thead>
           <tr>
             <th><span data-lang="cn">能力</span><span data-lang="en">Capability</span></th>
@@ -628,33 +650,25 @@ vp dev</pre>
 
     <dl class="faq-list">
 
-      <div class="faq-pair">
-        <div data-lang="cn" class="active"><dt>这些模板适合生产环境吗？</dt>
-        <dd>是的。每个模板都经过 <code>vp check</code> 和 <code>vp test</code> 验证，Lighthouse 达到满分基线，TypeScript 严格模式，适合直接用于生产项目。</dd></div>
-        <div data-lang="en"><dt>Are these templates production-ready?</dt>
-        <dd>Yes. Every template passes <code>vp check</code> and <code>vp test</code>, achieves a Lighthouse 100 baseline, uses strict TypeScript, and is designed for production use from day one.</dd></div>
-      </div>
+      <div data-lang="cn" class="active"><dt class="faq-dt">这些模板适合生产环境吗？</dt>
+      <dd class="faq-dd">是的。每个模板都经过 <code>vp check</code> 和 <code>vp test</code> 验证，Lighthouse 达到满分基线，TypeScript 严格模式，适合直接用于生产项目。</dd></div>
+      <div data-lang="en"><dt class="faq-dt">Are these templates production-ready?</dt>
+      <dd class="faq-dd">Yes. Every template passes <code>vp check</code> and <code>vp test</code>, achieves a Lighthouse 100 baseline, uses strict TypeScript, and is designed for production use from day one.</dd></div>
 
-      <div class="faq-pair">
-        <div data-lang="cn" class="active"><dt>Vite+ 和 Vite 有什么区别？</dt>
-        <dd>Vite+ 是在 Vite 基础上构建的统一工具链，封装了 Rolldown、Vitest、Oxlint、Oxfmt，提供 <code>vp dev</code>、<code>vp build</code>、<code>vp check</code>、<code>vp test</code> 等统一命令。</dd></div>
-        <div data-lang="en"><dt>What's the difference between Vite+ and Vite?</dt>
-        <dd>Vite+ is a unified toolchain built on Vite, wrapping Rolldown, Vitest, Oxlint, and Oxfmt into a single CLI. Commands like <code>vp dev</code>, <code>vp build</code>, <code>vp check</code>, and <code>vp test</code> replace multiple tools with one interface.</dd></div>
-      </div>
+      <div data-lang="cn" class="active"><dt class="faq-dt">Vite+ 和 Vite 有什么区别？</dt>
+      <dd class="faq-dd">Vite+ 是在 Vite 基础上构建的统一工具链，封装了 Rolldown、Vitest、Oxlint、Oxfmt，提供 <code>vp dev</code>、<code>vp build</code>、<code>vp check</code>、<code>vp test</code> 等统一命令。</dd></div>
+      <div data-lang="en"><dt class="faq-dt">What's the difference between Vite+ and Vite?</dt>
+      <dd class="faq-dd">Vite+ is a unified toolchain built on Vite, wrapping Rolldown, Vitest, Oxlint, and Oxfmt into a single CLI. Commands like <code>vp dev</code>, <code>vp build</code>, <code>vp check</code>, and <code>vp test</code> replace multiple tools with one interface.</dd></div>
 
-      <div class="faq-pair">
-        <div data-lang="cn" class="active"><dt>可以同时使用多个模板吗？</dt>
-        <dd>当然。模板彼此独立，你可以在一个项目中混合使用 Antd 后台和 Fastify 服务端。它们共用同一个 Vite+ 工具链，开发者体验一致。</dd></div>
-        <div data-lang="en"><dt>Can I use multiple templates together?</dt>
-        <dd>Absolutely. Templates are independent. You could pair an Antd SPA frontend with a Fastify backend — they share the same Vite+ toolchain for a consistent developer experience.</dd></div>
-      </div>
+      <div data-lang="cn" class="active"><dt class="faq-dt">可以同时使用多个模板吗？</dt>
+      <dd class="faq-dd">当然。模板彼此独立，你可以在一个项目中混合使用 Antd 后台和 Fastify 服务端。它们共用同一个 Vite+ 工具链，开发者体验一致。</dd></div>
+      <div data-lang="en"><dt class="faq-dt">Can I use multiple templates together?</dt>
+      <dd class="faq-dd">Absolutely. Templates are independent. You could pair an Antd SPA frontend with a Fastify backend — they share the same Vite+ toolchain for a consistent developer experience.</dd></div>
 
-      <div class="faq-pair">
-        <div data-lang="cn" class="active"><dt>如何提交 Issue 或贡献？</dt>
-        <dd>请访问 <a href="https://github.com/brandonxiang/viteplus-collections" target="_blank" rel="noopener">GitHub 仓库</a> 提交 Issue 或 Pull Request。我们欢迎社区贡献。</dd></div>
-        <div data-lang="en"><dt>How do I submit an issue or contribute?</dt>
-        <dd>Visit the <a href="https://github.com/brandonxiang/viteplus-collections" target="_blank" rel="noopener">GitHub repository</a> to open issues or submit pull requests. Community contributions are welcome.</dd></div>
-      </div>
+      <div data-lang="cn" class="active"><dt class="faq-dt">如何提交 Issue 或贡献？</dt>
+      <dd class="faq-dd">请访问 <a href="https://github.com/brandonxiang/viteplus-collections" target="_blank" rel="noopener">GitHub 仓库</a> 提交 Issue 或 Pull Request。我们欢迎社区贡献。</dd></div>
+      <div data-lang="en"><dt class="faq-dt">How do I submit an issue or contribute?</dt>
+      <dd class="faq-dd">Visit the <a href="https://github.com/brandonxiang/viteplus-collections" target="_blank" rel="noopener">GitHub repository</a> to open issues or submit pull requests. Community contributions are welcome.</dd></div>
 
     </dl>
   </section>
@@ -662,7 +676,7 @@ vp dev</pre>
   <!-- ========== Footer ========== -->
   <footer class="foot">
     <div class="mark">
-      <img src="https://raw.githubusercontent.com/brandonxiang/viteplus-collections/master/assets/logo.svg" alt="VitePlus Collections">
+      <img src="https://raw.githubusercontent.com/brandonxiang/viteplus-collections/master/assets/logo.svg" alt="VitePlus Collections logo" width="48" height="48">
       <span class="wm-name">VitePlus<br>Collections</span>
       <span class="wm-line" data-lang="cn">开箱即用的模板目录</span>
       <span class="wm-line" data-lang="en">Production-ready template catalog</span>
